@@ -1,7 +1,7 @@
 import React from 'react';
 import DOMPurify from 'isomorphic-dompurify';
 import Layout from '@layouts/layoutBackgroundAndOverlay';
-import ComponentDisclaimer from '@components/ComponentDisclaimer';
+import ComponentDisclaimer from '@components/componentDisclaimer';
 
 const videoDisclaimer = ({ data }) => {
 
