@@ -1,7 +1,7 @@
 import React from "react";
 import DOMPurify from 'isomorphic-dompurify';
 
-const componentCarousel = ({ data }) => {
+const componentDisclaimer = ({ data }) => {
 
     const id = data.id;
     const text = data.text;
@@ -30,4 +30,4 @@ const componentCarousel = ({ data }) => {
     );
 };
 
-export default componentCarousel;
+export default componentDisclaimer;
