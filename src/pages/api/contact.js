@@ -67,13 +67,11 @@ export default function (req, res) {
 
     const transporter = nodemailer.createTransport({
       host: process.env.NOTIFICATIONS_HOST,
-      port: 587,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.NOTIFICATIONS_USER,
         pass: process.env.NOTIFICATIONS_PASS
-      },
-      tls: {
-        rejectUnauthorized: false
       }
     });
 
