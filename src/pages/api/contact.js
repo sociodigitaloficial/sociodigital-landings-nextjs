@@ -77,10 +77,10 @@ export default function (req, res) {
 
     transporter.sendMail(notificationMail, function (err, info) {
       if(err){
-        console.log(res)
+        console.log(res);
         res.status(500).json({ info });
       } else {
-        console.log(res)
+        console.log(res);
         res.status(200).json({ info });
       }
     });
