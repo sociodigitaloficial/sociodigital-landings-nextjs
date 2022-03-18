@@ -210,6 +210,8 @@ const useInstagramData = () => {
         button: 'ME INTERESA',
         loandingTitle: "<b>Enviando ...</b>",
         loandingCallToAction: "Conectando al servidor ...",
+        successfulTitle: "<b>Éxito</b>",
+        successfulCallToAction: "El formulario de contacto ha sido enviado de manera exitosa, en breves minutos recibirás una notificación de confirmación en tu correo, ¡estamos hablando!",
         errorTitle: "<b>Error</b>",
         errorCallToAction: "Ha ocurrido un error cuando se estaba enviando el formulario, por favor vuelve a intentarlo.",
       },

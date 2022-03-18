@@ -10,7 +10,8 @@
             "@hooks/*": ["hooks/*"],
             "@styles/*": ["styles/*"],
             "@images/*": ["assets/images/*"],
-            "@videos/*": ["assets/videos/*"]
+            "@videos/*": ["assets/videos/*"],
+            "@api/*": ["pages/api/*"]
         },
     },
 }
