@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase-admin": "^10.2.0",
     "isomorphic-dompurify": "^0.18.0",
     "next": "12.0.9",
     "nodemailer": "^6.7.2",
