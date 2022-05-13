@@ -5,9 +5,8 @@ module.exports = {
       {
         test: /\.mp4$/,
         type: 'asset'
-      },
+      }
     )
-
     return config;
   },
 };

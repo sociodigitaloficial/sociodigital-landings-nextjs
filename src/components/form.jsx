@@ -315,7 +315,7 @@ const Form = ({ data }) => {
                 setError(true);
             }
         })
-        .catch(error => console.log('Error en petición: ' + error));
+        .catch(error => console.log('Error en form: ' + error));
 
     };
     
