@@ -2,7 +2,7 @@ import useMailData from '@hooks/useMailData';
 import nodemailer  from '@lib/nodemailer';
 import firestore from '@lib/firestore';
 
-export default async function (req, res) {
+export default function (req, res) {
     require('dotenv').config();
 
     const leadData = {
@@ -26,12 +26,34 @@ export default async function (req, res) {
     const { transporter } = nodemailer();
     const { leadMail, notificationMail } = useMailData(leadData, clientData);
 
-    try {
-        await insertData(leadData, clientData);
-        await transporter.sendMail(leadMail)
-        res.status = 200;
-        resolve();
-      } catch (error) {
-        console.log('Error en contactar: ' + error);
+    async function sendData(){
+        try {
+            await insertData(leadData, clientData);
+        } catch (error) {
+            res.statusCode = 404;
+            res.json(error);
+            console.log('Error en el sendData de contact: ' + error);
+            throw error;
+        }
     }
+
+    /*insertData(leadData, clientData)
+    .then(function (response){
+        res.statusCode = 200;
+        res.end(JSON.stringify(response));
+        return resolve;
+    })
+    .catch(function(error){
+        console.log('Error en contactar: ' + error);
+        res.json(error);
+        res.statusCode = 400;
+        return reject;
+    });
+
+    return new Promise ((resolve, reject) => {
+    
+    });*/
+
+    return sendData();
+    
 }

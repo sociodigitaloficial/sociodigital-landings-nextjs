@@ -306,16 +306,27 @@ const Form = ({ data }) => {
             },
             method: 'POST'
         })
+            .then((res) => {
+                setLoanding(false);
+                console.log('Positivo');
+                setSuccessful(true);
+            })
+            .catch(res => {
+                setLoanding(false);
+                console.log('Negativo');
+                setError(true);
+            })
         
-        .then(res => {
+        /*.then(response => {
             setLoanding(false);
-            if(res.status === 200){
+            if(response === 200){
                 setSuccessful(true);
             } else {
                 setError(true);
             }
         })
-        .catch(error => console.log('Error en form: ' + error));
+        .catch(error => console.log('Error en form: ' + error));*/
+        
 
     };
     

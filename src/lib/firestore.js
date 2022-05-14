@@ -7,21 +7,17 @@ const firestore = () => {
 
         require('dotenv').config();
 
-        try {
-            initializeApp({
-                credential: cert({
-                    project_id: process.env.FIREBASE_PROJECT_ID,
-                    private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-                    client_email: process.env.FIREBASE_CLIENT_EMAIL
-                })
-            });
+        initializeApp({
+            credential: cert({
+                project_id: process.env.FIREBASE_PROJECT_ID,
+                private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+                client_email: process.env.FIREBASE_CLIENT_EMAIL
+            })
+        });
             
-            const db = getFirestore();
-            return db;
-        
-        } catch (error) {
-            console.log('Error en conección a Firestore: ' + error);    
-        }
+        const db = getFirestore();
+
+        return db;
     }
 
     const insertData = async (leadData, clientData) =>{
@@ -41,6 +37,7 @@ const firestore = () => {
             })
         } catch (error) {
             console.log('Error en el insert a Firestore: ' + error);
+            throw error;
         }
     }
 
