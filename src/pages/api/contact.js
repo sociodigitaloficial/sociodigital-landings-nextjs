@@ -3,6 +3,7 @@ import nodemailer  from '@lib/nodemailer';
 import firestore from '@lib/firestore';
 
 export default function (req, res) {
+    
     require('dotenv').config();
 
     const leadData = {
@@ -22,37 +23,29 @@ export default function (req, res) {
         email: 'spizarro@sociodigital.cl',
     };
 
+    const { clientMail, prospectMail } = useMailData(leadData, clientData);
     const { insertData } = firestore();
-    const { transporter } = nodemailer();
-    const { leadMail, notificationMail } = useMailData(leadData, clientData);
+    const { sendNotification } = nodemailer();
 
     async function sendData(){
+
         try {
-            await insertData(leadData, clientData);
+            await Promise.all([insertData(leadData, clientData), sendNotification(clientMail)]);
+
+            try {
+                await sendNotification(prospectMail);
+            } catch (error) {
+                console.log('Error en el envío del correo al prospecto: ' + error);
+            }
+
+            res.statusCode = 200;
+            res.end();
         } catch (error) {
-            res.statusCode = 404;
-            res.json(error);
+            res.statusCode = 400;
             console.log('Error en el sendData de contact: ' + error);
-            throw error;
+            res.end();
         }
-    }
-
-    /*insertData(leadData, clientData)
-    .then(function (response){
-        res.statusCode = 200;
-        res.end(JSON.stringify(response));
-        return resolve;
-    })
-    .catch(function(error){
-        console.log('Error en contactar: ' + error);
-        res.json(error);
-        res.statusCode = 400;
-        return reject;
-    });
-
-    return new Promise ((resolve, reject) => {
-    
-    });*/
+    };
 
     return sendData();
     

@@ -25,7 +25,7 @@ const useMailData = (leadData, clientData) => {
         }
     };
 
-    const leadMail = {
+    const clientMail = {
         from: `"Socio Digital" <${process.env.SOCIODIGITAL_NOTIFICATION_MAIL}>`,
         to: clientData.email,
         subject: `${clientData.name} has recibido un NUEVO CONTACTO`,
@@ -56,7 +56,7 @@ const useMailData = (leadData, clientData) => {
                 </html>`
     };
 
-    const notificationMail = {
+    const prospectMail = {
         from: `"${clientData.name}" <${process.env.SOCIODIGITAL_NOTIFICATION_MAIL}>`,
         to: leadData.email,
         subject: `Hemos recibido tu solicitud exitosamente`,
@@ -77,8 +77,8 @@ const useMailData = (leadData, clientData) => {
     };
 
     return {
-        leadMail,
-        notificationMail
+        clientMail,
+        prospectMail
     }
 }
 
