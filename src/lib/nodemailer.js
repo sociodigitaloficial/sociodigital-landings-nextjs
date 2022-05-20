@@ -23,7 +23,7 @@ const nodemailer = () => {
             console.log('Error en conección a Nodemailer: ' + error);
             throw error;
         };
-    }
+    };
 
     const sendNotification = async (mail) =>{
 
@@ -35,11 +35,11 @@ const nodemailer = () => {
             console.log('Error en el envío del correo con Nodemailer: ' + error);
             throw error;
         }
-    }
+    };
 
     return {
         sendNotification
-    }
+    };
     
 };
 

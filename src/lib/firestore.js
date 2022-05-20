@@ -16,7 +16,7 @@ const firestore = () => {
         const db = getFirestore();
 
         return db;
-    }
+    };
 
     const insertData = async (leadData, clientData) =>{
         
@@ -32,16 +32,16 @@ const firestore = () => {
                 sale_stage: 'lead',
                 state: 'noContacted',
                 data: leadData
-            })
+            });
         } catch (error) {
             console.log('Error en el insert a Firestore: ' + error);
             throw error;
         }
-    }
+    };
 
     return {
         insertData
-    }
+    };
     
 };
 

@@ -15,7 +15,7 @@ const Publicidad = (props) => {
 
     useEffect(()=> {
       localStorage.setItem('token', props.token);
-    }, [])
+    }, []);
 
     return (
         <>
@@ -45,7 +45,7 @@ export function getStaticProps() {
       props: {
         token,
     }
-  }
+  };
 };
 
 export default Publicidad;

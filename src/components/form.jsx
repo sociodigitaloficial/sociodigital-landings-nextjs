@@ -316,7 +316,7 @@ const Form = ({ data }) => {
                 } else {
                     setError(true);
                 }
-            })
+            });
     };
     
     return (

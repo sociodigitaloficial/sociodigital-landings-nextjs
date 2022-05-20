@@ -25,7 +25,7 @@ const jsonwebtoken = () => {
     return {
         signToken,
         verifyToken
-    }
-}
+    };
+};
 
 export default jsonwebtoken;
