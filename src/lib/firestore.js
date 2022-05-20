@@ -5,8 +5,6 @@ const firestore = () => {
 
     const getDatabase = async () =>{
 
-        require('dotenv').config();
-
         initializeApp({
             credential: cert({
                 project_id: process.env.FIREBASE_PROJECT_ID,

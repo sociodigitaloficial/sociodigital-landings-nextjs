@@ -291,12 +291,15 @@ const Form = ({ data }) => {
         setForm(false);
         setLoanding(true);
 
+        const token = localStorage.getItem("token");
+
         let data = {
             landing,
             name,
             phone,
             email,
             message,
+            token
         };
 
         await fetch('/api/contact', {

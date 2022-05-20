@@ -4,8 +4,6 @@ const nodemailer = () => {
 
     const getTransporter = async () =>{
 
-        require('dotenv').config();
-
         try {
             let transporter = nodemailerAPI.createTransport({
                 host: process.env.AWS_NOTIFICATIONS_HOST,

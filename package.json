@@ -9,19 +9,19 @@
   },
   "dependencies": {
     "firebase-admin": "^10.2.0",
-    "isomorphic-dompurify": "^0.18.0",
-    "next": "12.0.9",
-    "nodemailer": "^6.7.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "isomorphic-dompurify": "^0.19.0",
+    "jsonwebtoken": "^8.5.1",
+    "next": "^12.1.6",
+    "nodemailer": "^6.7.5",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.1",
-    "eslint": "8.8.0",
-    "eslint-config-next": "^12.0.9",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "8.15.0",
+    "eslint-config-next": "^12.1.6",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.6.2"
   }
 }

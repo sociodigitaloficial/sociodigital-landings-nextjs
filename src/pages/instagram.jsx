@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import jsonwebtoken from '@lib/jsonwebtoken';
 import useInstagramData from '@hooks/useInstagramData';
 import Head from 'next/head';
 import Header from '@sections/header';
@@ -8,9 +9,13 @@ import CallToAction from '@sections/callToAction';
 import VideoDisclaimer from '@sections/videoDisclaimer';
 import CallForLoss from '@sections/callForLoss';
 
-const Publicidad = () => {
+const Publicidad = (props) => {
 
     const { head, header, presentation, carousel, callToAction, videoDisclaimer, callToAction2, carousel2, callForLoss } = useInstagramData(); 
+
+    useEffect(()=> {
+      localStorage.setItem('token', props.token);
+    }, [])
 
     return (
         <>
@@ -29,6 +34,18 @@ const Publicidad = () => {
             <CallForLoss data={callForLoss}/>
         </>
     );
+};
+
+export function getStaticProps() {
+    
+    const { signToken } = jsonwebtoken();
+    const token = signToken({role:'prospect'});
+  
+    return {
+      props: {
+        token,
+    }
+  }
 };
 
 export default Publicidad;
