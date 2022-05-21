@@ -36,7 +36,7 @@ const Publicidad = (props) => {
     );
 };
 
-export function getStaticProps() {
+export function getServerSideProps() {
     
     const { signToken } = jsonwebtoken();
     const token = signToken({role:'prospect'});
