@@ -9,7 +9,7 @@ import CallToAction from '@sections/callToAction';
 import VideoDisclaimer from '@sections/videoDisclaimer';
 import CallForLoss from '@sections/callForLoss';
 
-const Publicidad = (props) => {
+const Instagram = (props) => {
 
     const { head, header, presentation, carousel, callToAction, videoDisclaimer, callToAction2, carousel2, callForLoss } = useInstagramData(); 
 
@@ -48,4 +48,4 @@ export function getStaticProps() {
   };
 };
 
-export default Publicidad;
+export default Instagram;

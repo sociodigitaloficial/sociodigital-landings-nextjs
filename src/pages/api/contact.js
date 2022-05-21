@@ -7,6 +7,8 @@ export default function (req, res) {
 
     const { verifyToken } = jsonwebtoken();
 
+    let sendData;
+
     if(verifyToken(req.body.token)){
 
         console.log('Acceso autorizado');
@@ -32,7 +34,7 @@ export default function (req, res) {
         const { insertData } = firestore();
         const { sendNotification } = nodemailer();
 
-        return async function sendData(){
+        sendData = async () =>{
 
             try {
                 await Promise.all([insertData(leadData, clientData), sendNotification(clientMail)]);
@@ -51,6 +53,8 @@ export default function (req, res) {
                 res.end();
             }
         };
+
+        return sendData();
         
     } else {
         res.statusCode = 400;
